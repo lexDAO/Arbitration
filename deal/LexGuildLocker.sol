@@ -218,12 +218,12 @@ contract LexGuildLocker is Context { // splittable digital deal lockers w/ embed
     }
 
     function release(uint256 index) external { // client transfers locker milestone batch to provider(s) 
-    	  Locker storage locker = lockers[index];
+    	Locker storage locker = lockers[index];
 	    
-	      require(locker.locked == 0, "locked");
-	      require(locker.confirmed == 1, "!confirmed");
-	      require(locker.cap > locker.released, "released");
-    	  require(_msgSender() == locker.client, "!client"); 
+	require(locker.locked == 0, "locked");
+	require(locker.confirmed == 1, "!confirmed");
+	require(locker.cap > locker.released, "released");
+    	require(_msgSender() == locker.client, "!client"); 
         
         uint256[] memory milestone = locker.batch;
         
@@ -232,11 +232,11 @@ contract LexGuildLocker is Context { // splittable digital deal lockers w/ embed
             locker.released = locker.released.add(milestone[i]);
         }
 
-	      emit Release(index, milestone); 
+	emit Release(index, milestone); 
     }
     
     function withdraw(uint256 index) external { // withdraw locker remainder to client if termination time passes & no lock
-    	  Locker storage locker = lockers[index];
+    	Locker storage locker = lockers[index];
         
         require(locker.locked == 0, "locked");
         require(locker.confirmed == 1, "!confirmed");
@@ -249,7 +249,7 @@ contract LexGuildLocker is Context { // splittable digital deal lockers w/ embed
         
         locker.released = locker.released.add(remainder); 
         
-	      emit Withdraw(index, remainder); 
+	emit Withdraw(index, remainder); 
     }
     
     /************
@@ -263,23 +263,23 @@ contract LexGuildLocker is Context { // splittable digital deal lockers w/ embed
         require(now < locker.termination, "terminated"); 
         require(_msgSender() == locker.client || _msgSender() == locker.provider[0], "!party"); 
 
-	      locker.locked = 1; 
+	locker.locked = 1; 
 	    
-	      emit Lock(_msgSender(), index, details);
+	emit Lock(_msgSender(), index, details);
     }
     
     function resolve(uint256 index, uint256 clientAward, uint256[] calldata providerAward, bytes32 details) external { // resolver splits locked deposit remainder between client & provider(s)
         Locker storage locker = lockers[index];
         
         uint256 remainder = locker.cap.sub(locker.released); 
-	      uint256 resolutionFee = remainder.div(20); // calculates dispute resolution fee (5% of remainder)
+	uint256 resolutionFee = remainder.div(20); // calculates dispute resolution fee (5% of remainder)
 	    
-	      require(locker.locked == 1, "!locked"); 
-	      require(locker.cap > locker.released, "released");
-	      require(_msgSender() == locker.resolver, "!resolver");
-	      require(_msgSender() != locker.client, "resolver == client");
+	require(locker.locked == 1, "!locked"); 
+	require(locker.cap > locker.released, "released");
+	require(_msgSender() == locker.resolver, "!resolver");
+	require(_msgSender() != locker.client, "resolver == client");
 	    
-	      for (uint256 i = 0; i < locker.provider.length; i++) {
+	for (uint256 i = 0; i < locker.provider.length; i++) {
             require(_msgSender() != locker.provider[i], "resolver == provider");
             require(clientAward.add(providerAward[i]) == remainder.sub(resolutionFee), "resolution != remainder");
             IERC20(locker.token).safeTransfer(locker.provider[i], providerAward[i]);
@@ -288,8 +288,8 @@ contract LexGuildLocker is Context { // splittable digital deal lockers w/ embed
         IERC20(locker.token).safeTransfer(locker.client, clientAward);
         IERC20(locker.token).safeTransfer(locker.resolver, resolutionFee);
 	    
-	      locker.released = locker.released.add(remainder); 
+	locker.released = locker.released.add(remainder); 
 	    
-	      emit Resolve(_msgSender(), clientAward, providerAward, index, resolutionFee, details);
+	emit Resolve(_msgSender(), clientAward, providerAward, index, resolutionFee, details);
     }
 }
