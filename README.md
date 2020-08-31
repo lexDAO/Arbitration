@@ -2,7 +2,7 @@
 
 ## Background
 
-LexDAO is a group of legal & engineering professionals building business & dispute resolution protocols on Ethereum contracts.
+LexDAO is a group of legal / engineering professionals building business / dispute resolution protocols on Ethereum contracts.
 
 Recently, we deployed a [Moloch DAO v2x contract (MYSTIC)](https://etherscan.io/address/0x057e820d740d5aaaffa3c6de08c5c98d990db00d#code) to organize our membership. In addition to providing rostering and banking utility, MYSTIC allow us to resolve disputed Ethereum contract states and issue on-chain opinions through an incorporated form of the Raid Guild *[Minion](https://https://github.com/raid-guild/moloch-minion)* contract. 
 
