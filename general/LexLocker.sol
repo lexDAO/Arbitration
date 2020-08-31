@@ -193,7 +193,7 @@ contract LexLocker is Context { // open arbitration protocol with dispute locker
         
         locker.released = 1; // true
         
-	    emit Withdraw(index, locker.amount); 
+	emit Withdraw(index, locker.amount); 
     }
     
     /***********
@@ -202,20 +202,20 @@ contract LexLocker is Context { // open arbitration protocol with dispute locker
     function resolve(uint256 index, uint256 complainantAward, uint256 respondentAward, bytes32 details) external { // resolver splits locked deposit remainder between complainant & respondent
         Locker storage locker = lockers[index];
         
-	    uint256 resolutionFee = locker.amount.div(20); // calculates dispute resolution fee (5% of dispute amount)
+	uint256 resolutionFee = locker.amount.div(20); // calculates dispute resolution fee (5% of dispute amount)
 	    
-	    require(locker.released == 0, "released");
-	    require(_msgSender() == locker.resolver, "!resolver");
-	    require(_msgSender() != locker.complainant, "resolver == complainant");
-	    require(_msgSender() != locker.respondent, "resolver == respondent");
-	    require(complainantAward.add(respondentAward) == locker.amount.sub(resolutionFee), "resolution != amount");
+	require(locker.released == 0, "released");
+	require(_msgSender() == locker.resolver, "!resolver");
+	require(_msgSender() != locker.complainant, "resolver == complainant");
+	require(_msgSender() != locker.respondent, "resolver == respondent");
+	require(complainantAward.add(respondentAward) == locker.amount.sub(resolutionFee), "resolution != amount");
 	    
         IERC20(locker.token).safeTransfer(locker.complainant, complainantAward);
         IERC20(locker.token).safeTransfer(locker.respondent, respondentAward);
         IERC20(locker.token).safeTransfer(locker.resolver, resolutionFee);
 	    
-	    locker.released = 1; // true 
+	locker.released = 1; // true 
 	    
-	    emit Resolve(_msgSender(), complainantAward, respondentAward, index, resolutionFee, details);
+	emit Resolve(_msgSender(), complainantAward, respondentAward, index, resolutionFee, details);
     }
 }
