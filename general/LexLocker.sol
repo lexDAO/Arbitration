@@ -110,112 +110,146 @@ contract Context { // describes current contract execution context (metaTX suppo
     }
 }
 
-contract LexLocker is Context { // open arbitration protocol with dispute locker
+contract LexLocker is Context { // swift arbitration protocol with dispute locker
     using SafeERC20 for IERC20;
     using SafeMath for uint256;
 
     /** <⚖️> LXL <⚖️> **/
+    address public lexDAO;
     uint256 public disputeCount;
-    uint256 public constant MAX_DURATION = 2592000; // 1-month limit on dispute locker 
+    uint256 public resolutionRate;
+    uint256 private constant MAX_DURATION = 604800; // 1-week limit on dispute lockup 
     mapping(uint256 => Locker) public lockers; 
 
     struct Locker {  
-        address complainant; 
-        address respondent;
+        address defendant;
+        address plaintiff; 
         address resolver;
         address token;
         uint8 confirmed;
         uint8 released;
         uint256 amount;
         uint256 termination;
-        bytes32 details; 
+        string complaint;
+        string response;
     }
     
-    event RegisterLocker(address indexed complainant, address indexed respondent, address indexed resolver, address token, uint256 amount, uint256 index, uint256 termination, bytes32 details);	
-    event ConfirmLocker(uint256 indexed index, uint256 indexed amount);  
-    event Withdraw(uint256 indexed index, uint256 indexed amount);
-    event Resolve(address indexed resolver, uint256 indexed complainantAward, uint256 indexed respondentAward, uint256 index, uint256 resolutionFee, bytes32 details); 
+    event RegisterComplaint(address indexed defendant, address indexed plaintiff, address indexed resolver, address token, uint256 amount, uint256 index, uint256 termination, string complaint);	
+    event ConfirmResponse(uint256 indexed index, string response);  
+    event Withdraw(uint256 indexed index);
+    event Resolve(address indexed resolver, uint256 indexed plaintiffAward, uint256 indexed defendantAward, uint256 index, string opinion); 
+    event UpdateLexDAO(address indexed lexDAO);
+    event UpdateResolutionRate(uint256 indexed resolutionRate);
+    
+    constructor (address _lexDAO, uint256 _resolutionRate) public {
+        lexDAO = _lexDAO;
+        resolutionRate = _resolutionRate;
+    }
 
     /***************
     LOCKER FUNCTIONS
     ***************/
-    function registerLocker( // register dispute locker for token deposit & respondent confirmation
-        address complainant,
-        address respondent,
+    function registerComplaint( // register dispute locker for token deposit & defendant confirmation
+        address defendant,
+        address plaintiff,
         address resolver,
         address token,
         uint256 amount,
         uint256 termination, // exact termination date in seconds since epoch
-        bytes32 details) external returns (uint256) {
+        string calldata complaint) external returns (uint256) {
         require(termination <= now.add(MAX_DURATION), "duration maxed");
         
         disputeCount = disputeCount + 1;
         uint256 index = disputeCount;
         
-        lockers[index] = Locker( 
-            complainant, 
-            respondent,
+        lockers[index] = Locker(
+            defendant,
+            plaintiff, 
             resolver,
             token,
             0,
             0,
             amount,
             termination,
-            details);
+            complaint,
+            "");
 
-        emit RegisterLocker(complainant, respondent, resolver, token, amount, index, termination, details); 
+        emit RegisterComplaint(defendant, plaintiff, resolver, token, amount, index, termination, complaint); 
         return index;
     }
     
-    function confirmLocker(uint256 index) payable external { // respondent confirms & locks in disputed deposit
+    function confirmResponse(uint256 index, string calldata response) external { // defendant confirms & locks in splits of dispute amount 
         Locker storage locker = lockers[index];
         
         require(locker.confirmed == 0, "confirmed");
-        require(_msgSender() == locker.respondent, "!complainant");
+        require(_msgSender() == locker.defendant, "!defendant");
         
-        IERC20(locker.token).safeTransferFrom(locker.complainant, address(this), locker.amount.div(2));
-        IERC20(locker.token).safeTransferFrom(msg.sender, address(this), locker.amount.div(2));
+        uint256 split = locker.amount.div(2);
+        
+        IERC20(locker.token).safeTransferFrom(locker.plaintiff, address(this), split);
+        IERC20(locker.token).safeTransferFrom(_msgSender(), address(this), split);
 
         locker.confirmed = 1; // true
         
-        emit ConfirmLocker(index, locker.amount); 
+        emit ConfirmResponse(index, response); 
     }
 
-    function withdraw(uint256 index) external { // withdraw locker deposit to complainant & respondent if termination time passes & no resolution
+    function withdraw(uint256 index) external { // withdraw dispute amount deposit to plaintiff & defendant if termination time passes & no resolution
     	Locker storage locker = lockers[index];
         
         require(locker.confirmed == 1, "!confirmed");
         require(locker.released == 0, "released");
         require(now > locker.termination, "!terminated");
         
-        IERC20(locker.token).safeTransferFrom(address(this), locker.complainant, locker.amount.div(2));
-        IERC20(locker.token).safeTransferFrom(address(this), locker.respondent, locker.amount.div(2));
+        uint256 split = locker.amount.div(2);
+        
+        IERC20(locker.token).safeTransferFrom(address(this), locker.plaintiff, split);
+        IERC20(locker.token).safeTransferFrom(address(this), locker.defendant, split);
         
         locker.released = 1; // true
         
-	emit Withdraw(index, locker.amount); 
+	emit Withdraw(index); 
     }
     
     /***********
     ADR FUNCTION
     ***********/
-    function resolve(uint256 index, uint256 complainantAward, uint256 respondentAward, bytes32 details) external { // resolver splits locked deposit remainder between complainant & respondent
+    function resolve(uint256 index, uint256 defendantAward, uint256 plaintiffAward, string calldata details) external { // resolver splits locked deposit between plaintiff & defendant
         Locker storage locker = lockers[index];
         
-	uint256 resolutionFee = locker.amount.div(20); // calculates dispute resolution fee (5% of dispute amount)
+	uint256 resolutionFee = locker.amount.div(resolutionRate); // calculates dispute resolution fee
 	    
 	require(locker.released == 0, "released");
+	require(locker.confirmed == 1, "!confirmed");
 	require(_msgSender() == locker.resolver, "!resolver");
-	require(_msgSender() != locker.complainant, "resolver == complainant");
-	require(_msgSender() != locker.respondent, "resolver == respondent");
-	require(complainantAward.add(respondentAward) == locker.amount.sub(resolutionFee), "resolution != amount");
+	require(_msgSender() != locker.plaintiff && _msgSender() != locker.defendant, "resolver == party");
+	require(plaintiffAward.add(defendantAward) == locker.amount.sub(resolutionFee), "resolution != amount");
 	    
-        IERC20(locker.token).safeTransfer(locker.complainant, complainantAward);
-        IERC20(locker.token).safeTransfer(locker.respondent, respondentAward);
+	IERC20(locker.token).safeTransfer(locker.defendant, defendantAward);
+        IERC20(locker.token).safeTransfer(locker.plaintiff, plaintiffAward);
         IERC20(locker.token).safeTransfer(locker.resolver, resolutionFee);
 	    
 	locker.released = 1; // true 
 	    
-	emit Resolve(_msgSender(), complainantAward, respondentAward, index, resolutionFee, details);
+	emit Resolve(_msgSender(), plaintiffAward, defendantAward, index, details);
+    }
+    
+    /***************
+    LEXDAO FUNCTIONS
+    ***************/
+    function updateLexDAO(address _lexDAO) external { 
+        require(_msgSender() == lexDAO);
+        
+        lexDAO = _lexDAO;
+	    
+	emit UpdateLexDAO(lexDAO);
+    }
+    
+    function updateResolutionRate(uint256 _resolutionRate) external { 
+        require(_msgSender() == lexDAO);
+        
+        resolutionRate = _resolutionRate;
+	    
+	emit UpdateResolutionRate(resolutionRate);
     }
 }
