@@ -230,7 +230,6 @@ contract LexLocker is Context { // swift arbitration protocol with dispute locke
         emit UpdateComplaint(index, complaint); 
     }
     
- 
     function updateResponse(uint256 index, string calldata response) external { 
         Locker storage locker = lockers[index];
         
@@ -242,7 +241,6 @@ contract LexLocker is Context { // swift arbitration protocol with dispute locke
 
         emit UpdateResponse(index, response); 
     }
-    
     
     function resolveDispute(uint256 index, uint256 plaintiffAward, uint256 defendantAward, string calldata opinion) external { // resolver splits locked deposit between plaintiff & defendant per opinion
         Locker storage locker = lockers[index];
