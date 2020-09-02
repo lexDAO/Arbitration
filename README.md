@@ -2,7 +2,7 @@
 
 xDAI BETA:
 
-LexLocker: [0xb4d0555B9D036b00C091e1F57fd1fC7eA6329494](https://blockscout.com/poa/xdai/address/0xb4d0555B9D036b00C091e1F57fd1fC7eA6329494/contracts)
+xLexLocker: [0xb4d0555B9D036b00C091e1F57fd1fC7eA6329494](https://blockscout.com/poa/xdai/address/0xb4d0555B9D036b00C091e1F57fd1fC7eA6329494/contracts)
 
 xLexDAO: [0x1CBB34F9F54c506a34d84fFddc4192afD3A205EF](https://blockscout.com/poa/xdai/address/0x1CBB34F9F54c506a34d84fFddc4192afD3A205EF/contracts)
 
