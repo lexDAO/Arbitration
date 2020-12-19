@@ -12,11 +12,13 @@ LexDAO CORPS: [0x01B92E2C0D06325089c6Fd53C98a214f5C75B2aC](https://etherscan.io/
 
 LexDAO is a group of legal / engineering professionals building business / dispute resolution protocols on Ethereum contracts.
 
-Recently, we deployed a [Moloch DAO v2x contract (MYSTIC)](https://etherscan.io/address/0x7938a822dFab3Fc318f5ECfC3C986089fa89f319#code) to organize our Coop. membership, as well as a more specialized [sub-DAO (CORPS)](https://etherscan.io/address/0x01b92e2c0d06325089c6fd53c98a214f5c75b2ac#code) to provide more public-facing services after incubation. In addition to giving LexDAO rostering and banking utility, MYSTIC allow us to resolve disputed Ethereum contract states and issue on-chain opinions through an incorporated form of the Raid Guild *[Minion](https://https://github.com/raid-guild/moloch-minion)* contract. LexLocker.eth is a smart contract developed and maintained in the LexDAO legal engineering library (LexCorpus) that is designed to provide a range of business logic, such as timelocking and conditional, milestone payments, and is our production escrow protocol to demonstrate LexDAO arbitration.
+Recently, we deployed a [Moloch DAO v2x contract (MYSTIC)](https://etherscan.io/address/0x7938a822dFab3Fc318f5ECfC3C986089fa89f319#code) to organize our Coop. membership, as well as a more specialized [sub-DAO (CORPS)](https://etherscan.io/address/0x01b92e2c0d06325089c6fd53c98a214f5c75b2ac#code) to provide more public-facing services after incubation. In addition to giving LexDAO rostering and banking utility, MYSTIC allow us to resolve disputed Ethereum contract states and issue on-chain opinions through an incorporated form of the Raid Guild *[Minion](https://https://github.com/raid-guild/moloch-minion)* contract. 
+
+To demonstrate an entirely on-chain arbitration protocol among our membership and community beta testers, [LexLocker.eth](https://etherscan.io/address/0xd476595aa1737f5fdbfe9c8fea17737679d9f89a#code) is a smart contract developed and maintained in the LexDAO legal engineering library ([LexCorpus](https://github.com/lexDAO/LexCorpus)) that provides a range of blockchain business logic, such as timelocking and conditional milestone payments.
 
 ## 3-Track ADR Offering
 
-To begin, LexDAO offers three levels of LexDAO arbitration to the general public, focusing on EVM users: 
+To begin, LexDAO offers three levels of arbitration, focusing on EVM users: 
 
 **I> Lo-stakes Slower-speed - PANEL:** *LexDAO Coop.* (42 members, 1:1 votes). This is a non-profit group building legal engineering common goods, such as promoting coding for lawyers / legal for coders. As an association using the Moloch DAO framework, only accounts sponsored and voted on by members can join. Seeded as "good judgment machine."
 
