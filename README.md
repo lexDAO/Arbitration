@@ -8,6 +8,10 @@ LexDAO COOP: [0x7938a822dFab3Fc318f5ECfC3C986089fa89f319](https://etherscan.io/a
 
 LexDAO CORPS: [0x01B92E2C0D06325089c6Fd53C98a214f5C75B2aC](https://etherscan.io/address/0x01b92e2c0d06325089c6fd53c98a214f5c75b2ac#code)
 
+## Proof of Judgment
+
+(1) [The Case of the Late Goods.](https://twitter.com/lex_DAO/status/1340328591129796608?s=20) (CONTRACT INTEPRETATION BY LEXDAO COOP PANEL)
+
 ## Background
 
 LexDAO is a group of legal / engineering professionals building business / dispute resolution protocols on Ethereum contracts.
