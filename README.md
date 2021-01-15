@@ -4,9 +4,9 @@ IN PRODUCTION ON ETHEREUM MAINNET:
 
 LexLocker: [0xD476595aa1737F5FdBfE9C8FEa17737679D9f89a](https://etherscan.io/address/0xd476595aa1737f5fdbfe9c8fea17737679d9f89a#code)
 
-LexDAO COOP: [0x7938a822dFab3Fc318f5ECfC3C986089fa89f319](https://etherscan.io/address/0x7938a822dfab3fc318f5ecfc3c986089fa89f319#code)
-
-LexDAO CORPS: [0x01B92E2C0D06325089c6Fd53C98a214f5C75B2aC](https://etherscan.io/address/0x01b92e2c0d06325089c6fd53c98a214f5c75b2ac#code)
+LexDAO CORPS: 
+* MAINNET: [0x01B92E2C0D06325089c6Fd53C98a214f5C75B2aC](https://etherscan.io/address/0x01b92e2c0d06325089c6fd53c98a214f5c75b2ac#code)
+* XDAI: [0x034CfED494EdCff96f0D7160dC2B55Cae5Ee69E1](https://blockscout.com/poa/xdai/address/0x034CfED494EdCff96f0D7160dC2B55Cae5Ee69E1/contracts)
 
 ## Proof of Judgment
 
@@ -16,19 +16,17 @@ LexDAO CORPS: [0x01B92E2C0D06325089c6Fd53C98a214f5C75B2aC](https://etherscan.io/
 
 LexDAO is a group of legal / engineering professionals building business / dispute resolution protocols on Ethereum contracts.
 
-Recently, we deployed a [Moloch DAO v2x contract (MYSTIC)](https://etherscan.io/address/0x7938a822dFab3Fc318f5ECfC3C986089fa89f319#code) to organize our Coop. membership, as well as a more specialized [sub-DAO (CORPS)](https://etherscan.io/address/0x01b92e2c0d06325089c6fd53c98a214f5c75b2ac#code) to provide more public-facing services after incubation. In addition to giving LexDAO rostering and banking utility, MYSTIC allow us to resolve disputed Ethereum contract states and issue on-chain opinions through an incorporated form of the Raid Guild *[Minion](https://https://github.com/raid-guild/moloch-minion)* contract. 
+Recently, we deployed a [Moloch DAO v2x contract (MYSTIC)](https://etherscan.io/address/0x01b92e2c0d06325089c6fd53c98a214f5c75b2ac#code) to organize a more specialized sub-DAO (CORPS) to provide more public-facing services after incubation. In addition to giving LexDAO rostering and banking utility, MYSTIC allow us to resolve disputed Ethereum contract states and issue on-chain opinions through an incorporated form of the Raid Guild *[Minion](https://https://github.com/raid-guild/moloch-minion)* contract. 
 
 To demonstrate an entirely on-chain arbitration protocol among our membership and community beta testers, [LexLocker.eth](https://etherscan.io/address/0xd476595aa1737f5fdbfe9c8fea17737679d9f89a#code) is a smart contract developed and maintained in the LexDAO legal engineering library ([LexCorpus](https://github.com/lexDAO/LexCorpus)) that provides a range of blockchain business logic, such as timelocking and conditional milestone payments.
 
-## 3-Track ADR Offering
+## 2-Track ADR Offering
 
-To begin, LexDAO offers three levels of arbitration, focusing on EVM users: 
+To begin, LexDAO offers two levels of arbitration on Ethereum and xDAI:
 
-**I> Lo-stakes Slower-speed - PANEL:** *LexDAO Coop.* (42 members, 1:1 votes). This is a non-profit group building legal engineering common goods, such as promoting coding for lawyers / legal for coders. As an association using the Moloch DAO framework, only accounts sponsored and voted on by members can join. Seeded as "good judgment machine."
+**I> PANEL:** *LexDAO Corps.* (10 members, 1:1 votes, certified LexDAO legal engineers) This profit-focused venture is seeded with LexDAO legal engineers.
 
-**II> Hi-stakes Slower-speed - PANEL:** *LexDAO Corps.* (10 members, 1:1 votes, certified LexDAO legal engineers) This profit-focused venture is seeded with LexDAO legal engineers.
-
-**III> Hi-stakes Hi-speed - INDIVIDUAL:** *LexDAO Corps - Swift Resolver Protocol* Individual LexDAO legal engineers selected as `resolver` individually by users by tracking Corps. token holders, or acting separetely to `resolve` LexLocker.eth through token-permissioned `swiftResolver` protocol.
+**II> INDIVIDUAL:** *LexDAO Corps - Swift Resolver Protocol* Individual LexDAO legal engineers selected as `resolver` individually by users by tracking Corps. token holders, or acting separetely to `resolve` LexLocker.eth through token-permissioned `swiftResolver` protocol.
 
 ## Protocol
 
