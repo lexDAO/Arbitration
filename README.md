@@ -1,42 +1,26 @@
-# LexDAO Arbitration Project
+# LexDAO Arbitration
 
-IN PRODUCTION ON ETHEREUM MAINNET:
+LEXLOCKER:
 
-LexLocker: [0xD476595aa1737F5FdBfE9C8FEa17737679D9f89a](https://etherscan.io/address/0xd476595aa1737f5fdbfe9c8fea17737679d9f89a#code)
+ethereum: [`0xF64440519992D28771414732653Af51e7866ca31`](https://etherscan.io/address/0xF64440519992D28771414732653Af51e7866ca31#code)
 
-LexDAO CORPS: 
-* MAINNET: [0x01B92E2C0D06325089c6Fd53C98a214f5C75B2aC](https://etherscan.io/address/0x01b92e2c0d06325089c6fd53c98a214f5c75b2ac#code)
-* XDAI: [0x034CfED494EdCff96f0D7160dC2B55Cae5Ee69E1](https://blockscout.com/poa/xdai/address/0x034CfED494EdCff96f0D7160dC2B55Cae5Ee69E1/contracts)
+polygon: [`0xc31699bf207b37d65ddb2147aA416662eE2521b6`](https://polygonscan.com/address/0xc31699bf207b37d65ddb2147aa416662ee2521b6#code).
 
-## Proof of Judgment
+LEXDAO RESOLVER MULTISIGS (2/4): `LexDAO LLC, Resolver Series`
 
-(1) [The Case of the Late Goods.](https://twitter.com/lex_DAO/status/1340328591129796608?s=20) (CONTRACT INTEPRETATION BY LEXDAO COOP PANEL)
+ethereum: [`0x5B620676E28693fC14876b035b08CbB1B657dF38`](https://gnosis-safe.io/app/#/safes/0x5B620676E28693fC14876b035b08CbB1B657dF38/settings/owners)
 
-## Background
-
-LexDAO is a group of legal / engineering professionals building business / dispute resolution protocols on Ethereum contracts.
-
-Recently, we deployed a [Moloch DAO v2x contract (MYSTIC)](https://etherscan.io/address/0x01b92e2c0d06325089c6fd53c98a214f5c75b2ac#code) to organize a more specialized sub-DAO (CORPS) to provide more public-facing services after incubation. In addition to giving LexDAO rostering and banking utility, MYSTIC allow us to resolve disputed Ethereum contract states and issue on-chain opinions through an incorporated form of the Raid Guild *[Minion](https://https://github.com/raid-guild/moloch-minion)* contract. 
-
-To demonstrate an entirely on-chain arbitration protocol among our membership and community beta testers, [LexLocker.eth](https://etherscan.io/address/0xd476595aa1737f5fdbfe9c8fea17737679d9f89a#code) is a smart contract developed and maintained in the LexDAO legal engineering library ([LexCorpus](https://github.com/lexDAO/LexCorpus)) that provides a range of blockchain business logic, such as timelocking and conditional milestone payments.
-
-## 2-Track ADR Offering
-
-To begin, LexDAO offers two levels of arbitration on Ethereum and xDAI:
-
-**I> PANEL:** *LexDAO Corps.* (10 members, 1:1 votes, certified LexDAO legal engineers) This profit-focused venture is seeded with LexDAO legal engineers.
-
-**II> INDIVIDUAL:** *LexDAO Corps - Swift Resolver Protocol* Individual LexDAO legal engineers selected as `resolver` individually by users by tracking Corps. token holders, or acting separetely to `resolve` LexLocker.eth through token-permissioned `swiftResolver` protocol.
+polygon: [`0xf8DBd458f841424e2fD5fBDf18A7dEA17eb2211D`](https://polygon.gnosis-safe.io/app/#/safes/0xf8DBd458f841424e2fD5fBDf18A7dEA17eb2211D/settings/owners)
 
 ## Protocol
 
-Issues can be submitted to the LexDAO Cooperative via <email><lexdaocoop@gmail.com>. Recommend solutions from our network will be provided, and if the case involves LexLocker.eth, the chosen LexDAO solution (PANEL, INDIVIDUAL) will be coordinated.
+Issues can be submitted to the LexDAO Cooperative via <email><lexdaocoop@gmail.com>. Recommend solutions from our network will be provided, and further contact can be made in our discord server: `lexdao.chat`. 
 
 ### LexDAO Arbitration Clause
 
 For inclusion in agreements, governance docs:
 
-***Any controversy, dispute or claim among the parties arising out of or relating to this agreement, or the breach, termination or validity thereof, shall be finally settled by LexDAO Arbitration in accordance with the rules and procedures recorded on https://github.com/lexDAO/Arbitration/tree/master/rules.***
+***Any controversy, dispute or claim among the parties arising out of or relating to this agreement, or the breach, termination or validity thereof, shall be finally settled by LexDAO Arbitration in accordance with the rules and procedures recorded on https://github.com/lexDAO/Arbitration.***
 
 ## LexDAO Arbitration Rules
 
