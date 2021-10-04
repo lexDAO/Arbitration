@@ -13,7 +13,7 @@ LexDAO Resolver is a dispute resolution protocol that wishes to settle subjectiv
 
 **2. Technical details** 
 
-The LexDAO Resolver technical details implemented as MYSTIC can be found here on Ethereum mainnet: https://etherscan.io/address/0x01b92e2c0d06325089c6fd53c98a214f5c75b2ac#code (tokenized as “DAO”).
+The LexDAO Resolver technical details implemented as a Gnosis multi-sig can be found here on Ethereum mainnet: https://gnosis-safe.io/app/#/safes/0x5B620676E28693fC14876b035b08CbB1B657dF38/settings/owners (“DAO”), which form shall substantially match other EVM chain deployments.
 
 **3. LexDAO Resolver DAO**
 
