@@ -2,15 +2,21 @@
 
 LEXLOCKER:
 
-ethereum: [`0xF64440519992D28771414732653Af51e7866ca31`](https://etherscan.io/address/0xF64440519992D28771414732653Af51e7866ca31#code)
+ethereum: [`0xf91e098a4da86aACf082F35F976E8eb18005b33c`](https://etherscan.io/address/0xf91e098a4da86aACf082F35F976E8eb18005b33c#code)
 
-polygon: [`0xc31699bf207b37d65ddb2147aA416662eE2521b6`](https://polygonscan.com/address/0xc31699bf207b37d65ddb2147aa416662ee2521b6#code).
+arbitrum: [`0x60692a57F8b25108FcC27f21a964D05a2D39d2b5`](https://arbiscan.io/address/0x60692a57f8b25108fcc27f21a964d05a2d39d2b5#code)
+
+polygon: [`0x5e86B29C907C940Dd2c0C76B6fB2Ab97B8f464B1`](https://polygonscan.com/address/0x5e86B29C907C940Dd2c0C76B6fB2Ab97B8f464B1#code)
+
+xDai: [`0x102fd5b56E89EAf0336BB7b11c0F981Aa73f4462`](https://blockscout.com/xdai/mainnet/address/0x102fd5b56E89EAf0336BB7b11c0F981Aa73f4462/contracts)
 
 LEXDAO RESOLVER MULTISIGS (2/4): `LexDAO LLC, Resolver Series`
 
 ethereum: [`0x5B620676E28693fC14876b035b08CbB1B657dF38`](https://gnosis-safe.io/app/#/safes/0x5B620676E28693fC14876b035b08CbB1B657dF38/settings/owners)
 
 polygon: [`0xf8DBd458f841424e2fD5fBDf18A7dEA17eb2211D`](https://polygon.gnosis-safe.io/app/#/safes/0xf8DBd458f841424e2fD5fBDf18A7dEA17eb2211D/settings/owners)
+
+xDai: [`0x153Fbf5da827903e030Dc317C4031755D74D508a`](https://xdai.gnosis-safe.io/app/#/safes/0x153Fbf5da827903e030Dc317C4031755D74D508a/settings/owners)
 
 ## Protocol
 
