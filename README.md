@@ -26,7 +26,7 @@ rinkeby: [`0x153Fbf5da827903e030Dc317C4031755D74D508a`](https://rinkeby.gnosis-s
 
 ## Resolution
 
-Issues can be submitted to LexDAO via operator@lexdao.org and/or assistantoperator@lexdao.org. Recommended solutions from our network will be provided, and further contact can be made in our [discord server](http://discord.gg/lexdao). Currently, resolution services are provided by a multi-sig panel among LexDAO legal engineers, [`LexDAO LLC, Resolver Series`](https://snapshot.org/#/llc.lexdao.eth/proposal/0x323b0e89522d6640df37c71361145b22eb19251c4a005324295eca7af3ed5961).
+Issues can be submitted to LexDAO via operator@lexdao.org and/or assistantoperator@lexdao.org. Recommended solutions from our network will be provided, and further contact can be made in our [discord server](https://discord.gg/tuf9bGAdhE). Currently, resolution services are provided by a multi-sig panel among LexDAO legal engineers, [`LexDAO LLC, Resolver Series`](https://snapshot.org/#/llc.lexdao.eth/proposal/0x323b0e89522d6640df37c71361145b22eb19251c4a005324295eca7af3ed5961).
 
 ### LexDAO Arbitration Clause
 
