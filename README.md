@@ -1,5 +1,19 @@
 # LexDAO Arbitration
 
+## le✘dojo (working name ... actual to be determined)
+
+Is a special interest group initially formed as independent ombudsperson for an AI fight ... initial mission (to be confirmed)
+- ensure prizes undergo due diligence (eg escrow or bailment smart contractors)
+- look for cheating (though initially AI's less likely to deliberately lie than humans)
+- generally advise on rules that balance participant enjoyability as well as advance the gaols for 6079.ai
+
+----
+
+## Resolution of any arbitration request
+
+Issues can be submitted to LexDAO via operator@lexdao.org and/or assistantoperator@lexdao.org. Recommended solutions from our network will be provided, and further contact can be made in our [discord server](https://discord.gg/tuf9bGAdhE). Currently, resolution services are provided by a multi-sig panel among LexDAO legal engineers, [`LexDAO LLC, Resolver Series`](https://snapshot.org/#/llc.lexdao.eth/proposal/0x323b0e89522d6640df37c71361145b22eb19251c4a005324295eca7af3ed5961).
+
+<details><summary>LexLocker escrow</summary><br>
 LEXLOCKER: `On-chain Escrow Protocol`
 
 ethereum: [`0xf91e098a4da86aACf082F35F976E8eb18005b33c`](https://etherscan.io/address/0xf91e098a4da86aACf082F35F976E8eb18005b33c#code)
@@ -11,6 +25,10 @@ polygon: [`0x8745e9e94859b6f4dbb2f3124a6836566bc35c1b`](https://polygonscan.com/
 xDai: [`0x102fd5b56E89EAf0336BB7b11c0F981Aa73f4462`](https://blockscout.com/xdai/mainnet/address/0x102fd5b56E89EAf0336BB7b11c0F981Aa73f4462/contracts)
 
 rinkeby: [`0xCbd380E055A76940fa46bD3Ec85524EF09dE647D`](https://rinkeby.etherscan.io/address/0xCbd380E055A76940fa46bD3Ec85524EF09dE647D#code)
+
+</details>
+
+<details><summary>Resolver Series</summary><br>
 
 LEXDAO RESOLVER PANEL MULTISIG (3/5): `LexDAO LLC, Resolver Series`
 
@@ -24,16 +42,17 @@ xDai: [`0x153Fbf5da827903e030Dc317C4031755D74D508a`](https://xdai.gnosis-safe.io
 
 rinkeby: [`0x153Fbf5da827903e030Dc317C4031755D74D508a`](https://rinkeby.gnosis-safe.io/app/#/safes/0xDC58CEAcFBf482B7FaC70FF3aA6f6df46F039Fb9/settings/owners)
 
-## Resolution
-
-Issues can be submitted to LexDAO via operator@lexdao.org and/or assistantoperator@lexdao.org. Recommended solutions from our network will be provided, and further contact can be made in our [discord server](https://discord.gg/tuf9bGAdhE). Currently, resolution services are provided by a multi-sig panel among LexDAO legal engineers, [`LexDAO LLC, Resolver Series`](https://snapshot.org/#/llc.lexdao.eth/proposal/0x323b0e89522d6640df37c71361145b22eb19251c4a005324295eca7af3ed5961).
+</details>
 
 ### LexDAO Arbitration Clause
 
 For inclusion in agreements, governance docs:
 
-***Any controversy, dispute or claim among the parties arising out of or relating to this agreement, or the breach, termination or validity thereof, shall be finally settled by LexDAO Arbitration in accordance with the rules and procedures recorded on https://github.com/lexDAO/Arbitration.***
+***Any controversy, dispute or claim among the parties arising out of or relating to this agreement, or the breach, termination or validity thereof, shall be finally settled by LexDAO Arbitration in accordance with the rules and procedures selected/incorporated/recorded on https://github.com/lexDAO/Arbitration.***
 
 ## LexDAO Arbitration Rules
 
-LexDAO follows [UNCITRAL arbitration rules](https://uncitral.un.org/en/texts/arbitration/contractualtexts/arbitration). 
+LexDAO can follow
+- [UNCITRAL arbitration rules](https://uncitral.un.org/en/texts/arbitration/contractualtexts/arbitration);
+- UKJT [Dispute resolution]() including oracles
+- custom ruleset (eg random coin toss)
